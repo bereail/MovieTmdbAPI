@@ -33,6 +33,7 @@ const SearchBar = ({ setSearchTerm }) => {
     return (
         <Wrapper>
             <Content>
+            <img src={searchIcon} alt='search-icon' />
                 <input
                     type="text"
                     placeholder="Search Movie"
@@ -46,4 +47,3 @@ const SearchBar = ({ setSearchTerm }) => {
 
 export default SearchBar;
 
-/*  <img src={searchIcon} alt='search-icon' />*/

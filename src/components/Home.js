@@ -4,7 +4,7 @@ import { useHomeFetch } from '../hooks/useHomeFetch';
 import { IMAGE_BASE_URL, BACKDROP_SIZE,  POSTER_SIZE } from '../config';
 import  {Grid} from './Grid/Index';
 import Thumb from './Thumb';
-import NoImage from '../images/NoImage.svg';
+import NoImage from '../images/no_image.jpg'
 import Spinner from './Spinner';
 import SearchBar from './SearchBar';
 import Button from './Button';
