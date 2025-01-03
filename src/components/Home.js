@@ -2,7 +2,7 @@ import React from 'react';
 import HeroImage from './HeroImage'; // Default import
 import { useHomeFetch } from '../hooks/useHomeFetch';
 import { IMAGE_BASE_URL, BACKDROP_SIZE,  POSTER_SIZE } from '../config';
-import  {Grid} from './Grid/Index';
+import  Grid from './Grid';
 import Thumb from './Thumb';
 import NoImage from '../images/no_image.jpg'
 import Spinner from './Spinner';
@@ -18,7 +18,7 @@ const Home = () => {
     error, 
     searchTerm, 
     setSearchTerm, 
-    fetchMovies,
+    fetchMovies,x
      setIsLoadingMore
      } = useHomeFetch();
 
