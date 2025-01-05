@@ -18,7 +18,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />   
-       
+        <Route path='/:movieId' element={<Movie/>} />   
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <GlobalStyle />
     </Router>
@@ -28,5 +29,4 @@ const App = () => {
 export default App;
 
 
-/* <Route path='/:movieId' element={<Movie/>} />   
-        <Route path="/*" element={<NotFound />} />*/
+/* */

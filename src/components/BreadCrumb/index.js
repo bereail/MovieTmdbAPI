@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Wrapper, Content } from "./BreadCrum.styles";
+import { Wrapper, Content } from "./BreadCrumb.styles";
+import PropTypes from "prop-types";
 
-
-const BreadCrum = ({movieTitle}) => (
+const BreadCrumb = ({movieTitle}) => (
     <Wrapper>
         <Content>
             <Link to='/'>
@@ -15,4 +15,8 @@ const BreadCrum = ({movieTitle}) => (
     </Wrapper>
 );
 
-export default BreadCrum;
+BreadCrumb.prototype = {
+    movieTitle: PropTypes.string
+};
+
+export default BreadCrumb;

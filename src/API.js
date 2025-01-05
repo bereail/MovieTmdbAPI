@@ -17,11 +17,20 @@ const defaultConfig = {
 
 const API = {
   fetchMovies: async (searchTerm, page) => {
-    const endpoint = searchTerm
-      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
-      : `${POPULAR_BASE_URL}&page=${page}`;
-    return await (await fetch(endpoint)).json();
+    try {
+      const endpoint = searchTerm
+        ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
+        : `${POPULAR_BASE_URL}&page=${page}`;
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      return data || { results: [] }; // Default fallback
+    } catch (error) {
+      console.error("API Error:", error);
+      return { results: [] }; // Safe fallback
+    }
   },
+
+
   fetchMovie: async movieId => {
     const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
     return await (await fetch(endpoint)).json();

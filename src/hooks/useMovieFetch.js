@@ -6,17 +6,17 @@ export const useMovieFetch = (movieId) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const fetchMovies = useCallback(async () => {
+  const fetchMovieData = useCallback(async () => {
     try {
       setLoading(true);
       setError(false);
 
-      const movie = await API.fetchMovies(movieId);
+      // Fetch movie details and credits
+      const movie = await API.fetchMovie(movieId);
       const credits = await API.fetchCredits(movieId);
 
-      const directors = credits.crew.filter(
-        (member) => member.job === "Director"
-      );
+      // Extract directors from crew
+      const directors = credits.crew.filter((member) => member.job === "Director");
 
       setState({
         ...movie,
@@ -24,6 +24,7 @@ export const useMovieFetch = (movieId) => {
         directors: directors,
       });
     } catch (error) {
+      console.error("Error fetching movie data:", error);
       setError(true);
     } finally {
       setLoading(false);
@@ -31,8 +32,8 @@ export const useMovieFetch = (movieId) => {
   }, [movieId]);
 
   useEffect(() => {
-    fetchMovies(); // calling the memoized function
-  }, [movieId, fetchMovies]);
+    fetchMovieData();
+  }, [fetchMovieData]);
 
   return { state, loading, error };
 };
